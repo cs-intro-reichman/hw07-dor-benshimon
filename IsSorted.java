@@ -1,5 +1,16 @@
 public class IsSorted {
 
+    public static void main(String[] args) {
+        int[] a = {1, 2, 2, 5};
+        System.out.println(isSorted(a)); // true
+
+        int[] b = {1, 3, 2};
+        System.out.println(isSorted(b)); // false
+        
+        int[] c = {};
+        System.out.println(isSorted(c)); // true (empty array is sorted)
+    }
+
     // Public function: called by the user
     public static boolean isSorted(int[] a) {
         return isSorted(a, 0);
@@ -7,15 +18,19 @@ public class IsSorted {
 
     // Helper recursive function
     private static boolean isSorted(int[] a, int i) {
-        //// Replace the following statement with your code
-        return false; 
-    }
+   
+        if (i >= a.length - 1) {
+            return true;
+        }
 
-    public static void main(String[] args) {
-        int[] a = {1, 2, 2, 5};
-        System.out.println(isSorted(a)); // true
+       
+        if (a[i] > a[i + 1]) {
+            return false;
+        }
 
-        int[] b = {1, 3, 2};
-        System.out.println(isSorted(b)); // false
+       
+        return isSorted(a, i + 1);
     }
 }
+
+ 
